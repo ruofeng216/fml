@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/FML">
+        <file>fml_zh.qm</file>
+        <file>qt_zh_CN.qm</file>
+        <file>widgets.qm</file>
+    </qresource>
+</RCC>
