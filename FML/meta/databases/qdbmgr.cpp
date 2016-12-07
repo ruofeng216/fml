@@ -20,10 +20,10 @@ void QDBMgr::initTables()
 // 打开数据库
 bool QDBMgr::openDB()
 {
-
+	return true;
 }
 // 更新数据库
 bool QDBMgr::updateDB()
 {
-
+	return true;
 }

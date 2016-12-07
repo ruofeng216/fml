@@ -1,5 +1,4 @@
 #pragma once
-#include <QMap>
 #include "inc\controller_interface.h"
 
 class CLoginController :
@@ -12,17 +11,17 @@ public:
 	// 获取登录用户名集合 最后登录的n名用户
 	void getLoginUsers(QVector<QString> &users, int nCount = 5);
 	// 登录验证
-	ETYPE chkLogin(const QString &uname, const QString &pswd);
+	eERR chkLogin(const QString &uname, const QString &pswd);
 	// 注册
-	ETYPE regLogin(const QString &uname, const QString &pswd);
+	eERR regLogin(const QString &uname, const QString &pswd);
 	// 修改密码
-	ETYPE modifyLogin(const QString &uname, const QString &pswd);
+	eERR modifyLogin(const QString &uname, const QString &pswd);
 
 protected:
-	void initLoginUsers();
+	void init();
 
 private:
-	QMap<QString, CLogin> m_logins;
-
+	QVector<CLogin*> m_logins;
+	CLogin* m_pCurLogin;
 };
 
