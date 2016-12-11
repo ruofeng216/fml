@@ -505,6 +505,7 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_fml.h" />
     <ClInclude Include="GeneratedFiles\ui_message_box_widget.h" />
+    <ClInclude Include="include\util\log.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="view\commonui\winparameter.h" />
     <CustomBuild Include="view\commonui\message_box_widget.h">

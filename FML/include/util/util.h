@@ -30,12 +30,12 @@ namespace qutil
 	//void SendMailLog();
 
 	// 获取配置文件目录
-	const QString &qBaseConfigPath();
-	const STRINGUTF8 &baseConfigPath();
+	const QString qBaseConfigPath();
+	const STRINGUTF8 baseConfigPath();
 	// 获取ExceptionHandler应用路径
 	STRINGUTF8 getExceptionHandlerPath();
 	// 日志路径
-	const QString &logDir();
+	QString logDir();
 
 	// 编码转换
 	std::wstring ansi2unicode(const STRINGANSI& ansi);

@@ -159,10 +159,10 @@ namespace qutil
 	//}
 
 	// 获取配置文件目录
-	const QString &qBaseConfigPath(){
+	const QString qBaseConfigPath(){
 		return QCoreApplication::applicationDirPath() + "/config/config.ini";
 	}
-	const STRINGUTF8 & baseConfigPath(){
+	const STRINGUTF8 baseConfigPath(){
 		return toString(qBaseConfigPath());
 	}
 	// 获取ExceptionHandler应用路径
@@ -170,7 +170,7 @@ namespace qutil
 		return toString(QCoreApplication::applicationDirPath() + "/ExceptionHandler.exe");
 	}
 	// 日志路径
-	const QString &logDir() {
+	QString logDir() {
 		return QCoreApplication::applicationDirPath() + "/log";
 	}
 
