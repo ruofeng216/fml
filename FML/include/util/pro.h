@@ -20,3 +20,12 @@ typedef enum e_ErrType
 	e_ModifyErr = 5,    // ÐÞ¸ÄÊ§°Ü
 
 } eERR;
+
+
+
+
+
+//////////////////////////////////
+// color
+const QString c_282D31 = "#282D31";
+const QString c_323232 = "#323232";

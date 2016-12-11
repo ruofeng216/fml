@@ -2,26 +2,32 @@
 
 
 
-
-
 FML::FML(QWidget *parent)
 	: QMainWindow(parent)
+	, m_showFunc(false)
 {
 	ui.setupUi(this);
-	connect(VIEWSIGNAL, &ViewSignalManager::callBackUI, this, &FML::login);
-	qDebug() << "main thred" << QThread::currentThreadId();
-	QTimer *t = new QTimer(this);
-	connect(t, &QTimer::timeout, [this]{
-		Worker *worker = new Worker(this);
-		worker->start();
-	});
-	t->start(5000);
+	ui.listDetailFunc->hide();
+	connect(ui.funcShow, SIGNAL(clicked()), this, SLOT(funcclick()));
+
 }
-void FML::login(const CMyBasePtr val)
+
+void FML::funcclick()
 {
-	if (val->getClassName() == "CLogin")
+	m_showFunc = !m_showFunc;
+	showDetialFunc(m_showFunc);
+}
+
+void FML::showDetialFunc(bool bShow)
+{
+	if (bShow)
 	{
-		const CLogin *cl = static_cast<const CLogin*>(val.constData());
-		qDebug() << QString(cl->getUname()) << "/" << QString(cl->getPassword());
+		// 获取大功能选中项对应详细功能项刷新展示
+
+		ui.listDetailFunc->show();
+	}
+	else
+	{
+		ui.listDetailFunc->hide();
 	}
 }

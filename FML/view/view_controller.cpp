@@ -93,7 +93,7 @@ QWidget* ViewController::create(const QString &id, const QString &title, const Q
 		pwnd->resize(LOGIN_INIT_WIDTH, LOGIN_INIT_HEIGHT);
 	} else if (MAIN_WINDOW_ID == id) { // 主窗口
 		pwnd = new basicui(NULL, new FML(), id, title,basicui::TS_CLOSE|basicui::TS_MAX|basicui::TS_MIN|basicui::TS_LEFT|basicui::TS_LOGO);
-		pwnd->setCloseIsHide(true);
+		//pwnd->setCloseIsHide(true);
 		pwnd->resize(MAIN_INIT_WIDTH, MAIN_INIT_HEIGHT);
 	}
 
@@ -101,7 +101,7 @@ QWidget* ViewController::create(const QString &id, const QString &title, const Q
 		m_widgets[id] = pwnd;
 		// 设置初始化数据
 		pwnd->getContentWidget()->setProperty("data", valin);
-		if (LOGIN_WINDOW_ID == id) {
+		if (LOGIN_WINDOW_ID == id || MAIN_WINDOW_ID == id) {
 			connect(pwnd, &basicui::sigClose, this, &ViewController::slotloginexit, Qt::QueuedConnection);
 		} else {
 			connect(pwnd, &basicui::sigClose, this, &ViewController::closewnd);

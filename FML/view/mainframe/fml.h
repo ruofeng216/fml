@@ -14,22 +14,14 @@ class FML : public QMainWindow
 
 public:
     FML(QWidget *parent = Q_NULLPTR);
-	void login(const CMyBasePtr val);
+	
+private slots:
+	void funcclick();
+
+private:
+	void showDetialFunc(bool bShow = true);
+
 private:
     Ui::FMLClass ui;
-};
-
-class Worker : public QThread
-{
-	Q_OBJECT
-public:
-	Worker(QObject *p = NULL) :QThread(p){
-	}
-	~Worker(){}
-	void run()
-	{
-		qDebug() << "Worker::onTimeout get called from?: " << QThread::currentThreadId();
-		emit VIEWSIGNAL->callBackUI(CMyBasePtr(new CLogin("aaa", "123456")));
-		quit();
-	}
+	bool m_showFunc;
 };

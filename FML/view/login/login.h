@@ -11,6 +11,13 @@ public:
 	login(QWidget *parent = Q_NULLPTR);
 	~login();
 
+protected:
+	virtual void keyPressEvent(QKeyEvent *e);
+
+private slots:
+	void loginSys();
+	void registerSys();
+
 private:
 	Ui::login ui;
 };

@@ -20,7 +20,7 @@ bool QmPreload::init(int argc, char *argv[])
 {
 	// 加载默认文字资源
 	static QTranslator trans;
-	bool isLoad = trans.load(QString(":/ts/qt_zh_CN.qm"));
+	bool isLoad = trans.load(QString(":/font/qt_zh_CN.qm"));
 	if (isLoad) {
 		qApp->installTranslator(&trans);
 	} else {
@@ -28,7 +28,7 @@ bool QmPreload::init(int argc, char *argv[])
 	}
 
 	static QTranslator widgetsTrans;
-	isLoad = widgetsTrans.load(QString(":/ts/widgets.qm"));
+	isLoad = widgetsTrans.load(QString(":/syswnd/widgets.qm"));
 	if (isLoad) {
 		qApp->installTranslator(&widgetsTrans);
 	} else {
@@ -37,7 +37,7 @@ bool QmPreload::init(int argc, char *argv[])
 	
 	// 加载文字资源
 	static QTranslator qtTranslator;
-	if (qtTranslator.load(QString(":/ts/sc_zh.qm")))
+	if (qtTranslator.load(QString(":/font/fml_zh.qm")))
 	{
 		if (!qApp->installTranslator(&qtTranslator))
 		{

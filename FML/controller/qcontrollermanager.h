@@ -1,8 +1,8 @@
 #pragma once
 
 #include <QObject>
+#include "inc/controller_interface.h"
 
-class ILogin;
 class QControllerManager : public QObject
 {
 	Q_OBJECT
