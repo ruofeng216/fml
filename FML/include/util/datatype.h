@@ -11,7 +11,7 @@ public:
 	CMyBase(const QString& name);
 	CMyBase(const CMyBase &other);
 	virtual ~CMyBase();
-	const QString& getClassName() const;
+	const QString &getClassName() const;
 
 	virtual void setErrorCode(eERR errorCode);
 	virtual eERR getErrorCode() const;
@@ -43,12 +43,12 @@ private:
 
 
 // login
+#define CLASSNAME_CLOGIN "CLogin"
 class CLogin : public CMyBase
 {
 public:
 	CLogin(const QString &name = "", const QString &pswd = "");
 	~CLogin();
-
 	void setUname(const QString &name);
 	const QString &getUname() const;
 	const QString &getUnameKey() const;

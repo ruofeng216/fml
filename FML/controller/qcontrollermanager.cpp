@@ -1,7 +1,7 @@
 #include "qcontrollermanager.h"
 #include "LoginController.h"
 
-
+QControllerManager* QControllerManager::s_instance = NULL;
 QControllerManager::QControllerManager(QObject *parent)
 	: QObject(parent)
 	, m_pLoginCtrl(NULL)
@@ -10,20 +10,28 @@ QControllerManager::QControllerManager(QObject *parent)
 
 QControllerManager::~QControllerManager()
 {
+	if (m_pLoginCtrl)
+	{
+		delete m_pLoginCtrl;
+		m_pLoginCtrl = NULL;
+	}
 }
 
 // »ñÈ¡ÊµÀý
 QControllerManager *QControllerManager::instance()
 {
-	static QControllerManager inst;
-	return &inst;
+	if (NULL == s_instance)
+	{
+		s_instance = new QControllerManager();
+	}
+	return s_instance;
 }
 void QControllerManager::release()
 {
-	if (m_pLoginCtrl)
+	if (NULL != s_instance)
 	{
-		delete m_pLoginCtrl;
-		m_pLoginCtrl = NULL;
+		delete s_instance;
+		s_instance = NULL;
 	}
 }
 

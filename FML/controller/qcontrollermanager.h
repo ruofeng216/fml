@@ -19,5 +19,7 @@ public:
 	ILogin *getLoginInst();
 
 private:
+	static QControllerManager* s_instance;
+
 	ILogin *m_pLoginCtrl;
 };

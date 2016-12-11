@@ -16,5 +16,10 @@ public:
 	static ViewSignalManager* instance();
 
 signals:
-	void login(const CMyBasePtr val);
+	// 程序退出
+	void sigExitProgramme(bool b = true);
+	// 处理返回/推送
+	void callBackUI(const CMyBasePtr val);
+
+
 };

@@ -57,7 +57,7 @@ const QVariant &CMyField::getVal() const
 //////////////////////////////////////////////////////////////////////
 // login
 CLogin::CLogin(const QString &name, const QString &pswd)
-	: CMyBase("CLogin")
+	: CMyBase(CLASSNAME_CLOGIN)
 {
 	m_uname.setKey("uname");
 	m_uname.setVal(name);

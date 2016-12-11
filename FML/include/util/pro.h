@@ -1,5 +1,15 @@
 #pragma once
 
+#include <string>
+#include <vector>
+
+typedef std::string STRINGANSI;
+typedef std::string STRINGUTF8;
+typedef std::string STRINGBASE64;
+
+typedef unsigned long long ULONG64;
+typedef unsigned int UINT32;
+
 typedef enum e_ErrType
 {
 	e_Success = 0, // ³É¹¦
