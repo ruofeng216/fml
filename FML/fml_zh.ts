@@ -4,8 +4,26 @@
 <context>
     <name>FMLClass</name>
     <message>
-        <location filename="fml.ui" line="16"/>
+        <location filename="view/mainframe/fml.ui" line="20"/>
         <source>FML</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="110"/>
+        <location filename="view/mainframe/fml.ui" line="187"/>
+        <location filename="view/mainframe/fml.ui" line="192"/>
+        <location filename="view/mainframe/fml.ui" line="197"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="115"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="135"/>
+        <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -72,12 +90,12 @@
     </message>
     <message>
         <location filename="view/login/login.ui" line="111"/>
-        <location filename="view/login/login.cpp" line="28"/>
-        <location filename="view/login/login.cpp" line="42"/>
-        <location filename="view/login/login.cpp" line="49"/>
-        <location filename="view/login/login.cpp" line="61"/>
-        <location filename="view/login/login.cpp" line="75"/>
-        <location filename="view/login/login.cpp" line="82"/>
+        <location filename="view/login/login.cpp" line="29"/>
+        <location filename="view/login/login.cpp" line="43"/>
+        <location filename="view/login/login.cpp" line="50"/>
+        <location filename="view/login/login.cpp" line="62"/>
+        <location filename="view/login/login.cpp" line="76"/>
+        <location filename="view/login/login.cpp" line="83"/>
         <source>login</source>
         <translation>登录</translation>
     </message>
@@ -92,34 +110,34 @@
         <translation>请输入密码</translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="28"/>
-        <location filename="view/login/login.cpp" line="61"/>
+        <location filename="view/login/login.cpp" line="29"/>
+        <location filename="view/login/login.cpp" line="62"/>
         <source>The user name or password cannot be empty</source>
         <translation type="unfinished">用户名或密码不能为空！</translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="37"/>
-        <location filename="view/login/login.cpp" line="70"/>
+        <location filename="view/login/login.cpp" line="38"/>
+        <location filename="view/login/login.cpp" line="71"/>
         <source>Financial Market Leader</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="42"/>
+        <location filename="view/login/login.cpp" line="43"/>
         <source>no user. if you have none, please register.</source>
         <translation type="unfinished">用户不存在，请先注册。</translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="49"/>
+        <location filename="view/login/login.cpp" line="50"/>
         <source>user pswd error, no login.</source>
         <translation type="unfinished">用户密码错误，不能登录。</translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="75"/>
+        <location filename="view/login/login.cpp" line="76"/>
         <source>user existed, please register another.</source>
         <translation type="unfinished">用户已存在，请重新注册。</translation>
     </message>
     <message>
-        <location filename="view/login/login.cpp" line="82"/>
+        <location filename="view/login/login.cpp" line="83"/>
         <source>register error, call IT.</source>
         <translation type="unfinished">注册失败，请找IT。</translation>
     </message>
