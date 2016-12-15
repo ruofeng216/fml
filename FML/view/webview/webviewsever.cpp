@@ -21,16 +21,19 @@ void WebviewSever::release()
 {
 	if (m_pSever)
 	{
+		m_socketSever->closed();
 		if (m_wrapper)
 		{
-			m_wrapper->deleteLater();
+			delete m_wrapper;
+			m_wrapper = NULL;
 		}
-		m_socketSever->close();
 		if (m_socketSever)
 		{
-			m_socketSever->deleteLater();
+			delete m_socketSever;
+			m_socketSever = NULL;
 		}
-		m_pSever->deleteLater();
+		delete m_pSever;
+		m_pSever = NULL;
 	}
 }
 WebviewSever *WebviewSever::instance()

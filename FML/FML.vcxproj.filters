@@ -70,6 +70,9 @@
     <Filter Include="common">
       <UniqueIdentifier>{e3380cda-c0ba-4e45-949c-60b6c33c6df3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="view\webview">
+      <UniqueIdentifier>{ff7cb1c0-95ff-4345-9c90-d336f6eab87e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -216,6 +219,72 @@
     <ClCompile Include="view\commonui\winparameter.cpp">
       <Filter>view\commonui</Filter>
     </ClCompile>
+    <ClCompile Include="controller\DemoController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_democrawler.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_democrawler.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="controller\democrawler.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\basewebchannel.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_basewebchannel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_basewebchannel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\basewebengineview.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_basewebengineview.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_basewebengineview.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\webenginepage.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_webenginepage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_webenginepage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\websocketclientwrapper.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_websocketclientwrapper.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_websocketclientwrapper.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\websockettransport.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_websockettransport.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_websockettransport.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="view\webview\webviewsever.cpp">
+      <Filter>view\webview</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_webviewsever.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_webviewsever.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="fml.qrc">
@@ -305,27 +374,50 @@
     <CustomBuild Include="view\mainframe\fml.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource.h">
+    <CustomBuild Include="include\util\log.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_message_box_widget.h">
+    </CustomBuild>
+    <CustomBuild Include="resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_fml.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="view\commonui\winparameter.h">
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_message_box_widget.h">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="fml_zh.ts">
+      <Filter>Translation Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\commonui\winparameter.h">
       <Filter>view\commonui</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_fml.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
+    </CustomBuild>
+    <CustomBuild Include="controller\DemoController.h">
+      <Filter>controller</Filter>
+    </CustomBuild>
+    <CustomBuild Include="controller\democrawler.h">
+      <Filter>controller</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\basewebchannel.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\basewebengineview.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\webenginepage.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\websocketclientwrapper.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\websockettransport.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="view\webview\webviewsever.h">
+      <Filter>view\webview</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FML.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="fml_zh.ts">
-      <Filter>Translation Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

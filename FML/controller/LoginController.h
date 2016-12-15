@@ -8,8 +8,6 @@ public:
 	CLoginController();
 	~CLoginController();
 
-	// 获取登录用户名集合 最后登录的n名用户
-	void getLoginUsers(QVector<QString> &users, int nCount = 5);
 	// 登录验证
 	eERR chkLogin(const QString &uname, const QString &pswd);
 	// 注册
@@ -21,7 +19,6 @@ protected:
 	void init();
 
 private:
-	QVector<CLogin*> m_logins;
-	CLogin* m_pCurLogin;
+	QVector<CLogin> m_logins;
 };
 

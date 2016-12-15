@@ -7,12 +7,7 @@ CMyBase::CMyBase(const QString& name)
 	m_className = name;
 	m_errorCode = e_Success;
 }
-CMyBase::CMyBase(const CMyBase &other)
-	: QSharedData(other)
-{
-	m_className = other.getClassName();
-	m_errorCode = other.getErrorCode();
-}
+
 CMyBase::~CMyBase()
 {
 }
@@ -33,7 +28,12 @@ eERR CMyBase::getErrorCode() const
 CMyField::CMyField()
 {
 }
-
+CMyField::CMyField(const QVariant &val, const QString &key, const QString &des)
+	: m_key(key)
+	, m_val(val)
+	, m_describe(des)
+{
+}
 CMyField::~CMyField()
 {
 
@@ -54,6 +54,14 @@ const QVariant &CMyField::getVal() const
 {
 	return m_val;
 }
+void CMyField::setDes(const QString &val)
+{
+	m_describe = val;
+}
+const QString &CMyField::getDes() const
+{
+	return m_describe;
+}
 //////////////////////////////////////////////////////////////////////
 // login
 CLogin::CLogin(const QString &name, const QString &pswd)
@@ -72,11 +80,11 @@ void CLogin::setUname(const QString &name)
 {
 	m_uname.setVal(name);
 }
-const QString &CLogin::getUname() const
+const QString CLogin::getUname() const
 {
 	return m_uname.getVal().toString();
 }
-const QString &CLogin::getUnameKey() const
+const QString CLogin::getUnameKey() const
 {
 	return m_uname.getKey();
 }
@@ -85,7 +93,7 @@ void CLogin::setPassword(const QString &pswd)
 {
 	m_password.setVal(pswd);
 }
-const QString &CLogin::getPassword() const
+const QString CLogin::getPassword() const
 {
 	return m_password.getVal().toString();
 }
@@ -94,19 +102,134 @@ const QString &CLogin::getPasswordKey() const
 	return m_password.getKey();
 }
 
-const QVariantMap &CLogin::toJson()
+const QVariantMap CLogin::toJson()
 {
 	QVariantMap mJson;
+	mJson["classname"] = getClassName();
 	mJson[getUnameKey()] = getUname();
 	mJson[getPasswordKey()] = getPassword();
 	return mJson;
 }
-void CLogin::fromJson(const QVariantMap &val)
+bool CLogin::fromJson(const QVariantMap &val)
 {
-	if (val.contains(getUnameKey()))
+	if (val.contains("classname") &&
+		val["classname"]==getClassName())
 	{
-		setUname(val[getUnameKey()].toString());
-		setPassword(val[getPasswordKey()].toString());
+		if (val.contains(getUnameKey())) setUname(val[getUnameKey()].toString());
+		if (val.contains(getPasswordKey())) setPassword(val[getPasswordKey()].toString());
+		return true;
 	}
+	return false;
 }
 ////////////////////////////////////////////////////////////////
+
+demoStruct::demoStruct(const QVariant &val)
+	: CMyBase(CLASSNAME_DEMOSTRUCT)
+{
+	m_bondid.setKey("bondid");
+	m_bid.setKey("bid");
+	m_volBid.setKey("volbid");
+	m_ofr.setKey("ofr");
+	m_volOfr.setKey("volofr");
+	m_sn.setKey("sn");
+	if (val != NULL)
+	{
+		fromJson(val.toMap());
+	}
+}
+demoStruct::~demoStruct()
+{
+}
+void demoStruct::setBondid(const CMyField &bondid)
+{
+	m_bondid.setVal(bondid.getVal());
+	if (!m_bondid.getDes().isEmpty())
+		m_bondid.setDes(bondid.getDes());
+}
+const CMyField &demoStruct::getBondid() const
+{
+	return m_bondid;
+}
+
+void demoStruct::setBid(const CMyField &bid)
+{
+	m_bid.setVal(bid.getVal());
+	if (!m_bid.getDes().isEmpty())
+		m_bid.setDes(bid.getDes());
+}
+const CMyField &demoStruct::getBid() const
+{
+	return m_bid;
+}
+
+void demoStruct::setOfr(const CMyField &ofr)
+{
+	m_ofr.setVal(ofr.getVal());
+	if (!m_ofr.getDes().isEmpty())
+		m_ofr.setDes(ofr.getDes());
+}
+const CMyField &demoStruct::getOfr() const
+{
+	return m_ofr;
+}
+
+void demoStruct::setVolBid(const CMyField &volbid)
+{
+	m_volBid.setVal(volbid.getVal());
+	if (!m_volBid.getDes().isEmpty())
+		m_volBid.setDes(volbid.getDes());
+}
+const CMyField &demoStruct::getVolBid() const
+{
+	return m_volBid;
+}
+
+void demoStruct::setVolOfr(const CMyField &volofr)
+{
+	m_volOfr.setVal(volofr.getVal());
+	if (!m_volOfr.getDes().isEmpty())
+		m_volOfr.setDes(volofr.getDes());
+}
+const CMyField &demoStruct::getVolOfr() const
+{
+	return m_volOfr;
+}
+
+void demoStruct::setSN(const CMyField &sn)
+{
+	m_sn.setVal(sn.getVal());
+	if (!m_sn.getDes().isEmpty())
+		m_sn.setDes(sn.getDes());
+}
+const CMyField &demoStruct::getSN() const
+{
+	return m_sn;
+}
+
+const QVariantMap demoStruct::toJson()
+{
+	QVariantMap mJson;
+	mJson["classname"] = getClassName();
+	mJson[getBondid().getKey()] = getBondid().getVal();
+	mJson[getBid().getKey()] = getBid().getVal();
+	mJson[getVolBid().getKey()] = getVolBid().getVal();
+	mJson[getOfr().getKey()] = getOfr().getVal();
+	mJson[getVolOfr().getKey()] = getVolOfr().getVal();
+	mJson[getSN().getKey()] = getSN().getVal();
+	return mJson;
+}
+bool demoStruct::fromJson(const QVariantMap &val)
+{
+	if (val.contains("classname") &&
+		val["classname"] == getClassName())
+	{
+		if (val.contains(getBondid().getKey())) setBondid(CMyField(val[getBondid().getKey()].toString()));
+		if (val.contains(getBid().getKey())) setBid(CMyField(val[getBid().getKey()].toString()));
+		if (val.contains(getVolBid().getKey())) setBid(CMyField(val[getVolBid().getKey()].toString()));
+		if (val.contains(getOfr().getKey())) setBid(CMyField(val[getOfr().getKey()].toString()));
+		if (val.contains(getVolOfr().getKey())) setBid(CMyField(val[getVolOfr().getKey()].toString()));
+		if (val.contains(getSN().getKey())) setBid(CMyField(val[getSN().getKey()].toString()));
+		return true;
+	}
+	return false;
+}

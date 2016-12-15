@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWebEnginePage>
+#include <QtWebEngineWidgets/QWebEnginePage>
 
 class WebEnginePage : public QWebEnginePage
 {

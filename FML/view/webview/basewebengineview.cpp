@@ -3,6 +3,7 @@
 #include "basewebchannel.h"
 #include <QUuid>
 #include <QDebug>
+#include "util/util.h"
 
 BaseWebEngineView::BaseWebEngineView(QWidget *parent)
 	: QWebEngineView(parent)
@@ -56,12 +57,13 @@ void BaseWebEngineView::hyperlinkClicked(const QUrl &links)
 {
 	if (!links.isEmpty())
 	{
+		m_isWebLoadFinished = false;
 		page()->load(links);
 	}
 }
 
 // 包装runJavaScript，方便管理
-const void BaseWebEngineView::runjs(const QString &js, const JsResponseCb &cb)
+void BaseWebEngineView::runjs(const QString &js, const JsResponseCb &cb)
 {
 	if (m_isWebLoadFinished) {
 		if (cb) {
@@ -96,16 +98,6 @@ DemoWebview::DemoWebview(QWidget *parent)
 	: BaseWebEngineView(parent)
 {
 	setWebChannel();
-	QTimer *p = new QTimer(this);
-	connect(p, &QTimer::timeout, [this] {
-		int i = ((DemolWebChannel*)m_pWebChannel)->getID();
-		qDebug() << "C++ push js : " << i;
-		runjs(QString("output('%1')").arg(i), [=](const QVariant &val) {
-			qDebug() << "js return number: " << val;
-		});
-	});
-	p->setInterval(1);
-	//p->start();
 }
 DemoWebview::~DemoWebview()
 {
@@ -115,4 +107,11 @@ DemoWebview::~DemoWebview()
 void DemoWebview::setWebChannel()
 {
 	m_pWebChannel = new DemolWebChannel(this);
+}
+
+void DemoWebview::pushDemoData(const demoStruct &val)
+{
+	demoStruct t = val;
+	QString str = QString("updateData('%1')").arg(json::toString(t.toJson()));
+	runjs(str);
 }

@@ -6,6 +6,7 @@
 #include <QMutex>
 #include "winmodel.h"
 #include "util/util.h"
+#include "util/datatype.h"
  
 class ViewController : public QObject
 {
@@ -63,7 +64,8 @@ public:
 
 	
 signals:
-	
+	// DemoData
+	void pushDemoData(const demoStruct &val);
 
 public slots:
 	void closewnd(const QString &id /* 窗口ID */, bool bdestory = true);
@@ -73,6 +75,8 @@ private slots:
 	void exitProgramme(bool btips = true);
 	// 登陆退出
 	void slotloginexit(const QString &id = "", bool isExit = true);
+	// 响应后台推送及回掉处理
+	void slotCallBackUI(const CMyBasePtr val);
 
 private:
 	ViewController(QObject *parent = 0);

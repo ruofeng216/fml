@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QObject>
-#include <QWebEngineCallback>
+#include <QtWebEngineCore/QWebEngineCallback>
 
 class QWebChannel;
 class BaseWebChannel : public QObject
@@ -14,10 +14,8 @@ public:
 
 	const QWebChannel *channel() const;
 
-
 public slots:
-	virtual const QVariant slotHandle(const QVariant &val) = 0;
-
+	virtual const QVariant slotHandle(const QVariant &val)=0;
 private:
 	QWebChannel *m_channel;
 };
@@ -31,7 +29,7 @@ public:
 	~DemolWebChannel();
 	int getID() { return ++m_id; }
 public slots:
-	virtual const QVariant slotHandle(const QVariant &val);
+	const QVariant slotHandle(const QVariant &val);
 private:
 	int m_id;
 };

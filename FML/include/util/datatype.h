@@ -2,33 +2,33 @@
 #include <QObject>
 #include <QString>
 #include <QVariantMap>
-#include <QSharedDataPointer>
+#include <QSharedPointer>
 #include "pro.h"
 
-class CMyBase : public QSharedData
+class CMyBase
 {
 public:
 	CMyBase(const QString& name);
-	CMyBase(const CMyBase &other);
 	virtual ~CMyBase();
 	const QString &getClassName() const;
 
 	virtual void setErrorCode(eERR errorCode);
 	virtual eERR getErrorCode() const;
 
+	virtual const QVariantMap toJson() = 0;
+	virtual bool fromJson(const QVariantMap &val) = 0;
+
 protected:
 	QString m_className;               // 派生类的名称
 	eERR m_errorCode;               // 错误码，0表示成功
 };
-Q_DECLARE_TYPEINFO(CMyBase, Q_MOVABLE_TYPE);
-
-typedef QSharedDataPointer<CMyBase> CMyBasePtr;
-
+typedef QSharedPointer<CMyBase> CMyBasePtr;
 
 class CMyField
 {
 public:
 	CMyField();
+	CMyField(const QVariant &val, const QString &key="", const QString &des="");
 	~CMyField();
 	void setKey(const QString &key);
 	const QString &getKey() const;
@@ -36,9 +36,12 @@ public:
 	void setVal(const QVariant &val);
 	const QVariant &getVal() const;
 
+	void setDes(const QString &val);
+	const QString &getDes() const;
 private:
 	QString m_key;
 	QVariant m_val;
+	QString m_describe;
 };
 
 
@@ -50,18 +53,56 @@ public:
 	CLogin(const QString &name = "", const QString &pswd = "");
 	~CLogin();
 	void setUname(const QString &name);
-	const QString &getUname() const;
-	const QString &getUnameKey() const;
+	const QString getUname() const;
+	const QString getUnameKey() const;
 
 	void setPassword(const QString &pswd);
-	const QString &getPassword() const;
+	const QString getPassword() const;
 	const QString &getPasswordKey() const;
 
-	const QVariantMap &toJson();
-	void fromJson(const QVariantMap &val);
+	const QVariantMap toJson();
+	bool fromJson(const QVariantMap &val);
 
-private:
+protected:
 	CMyField m_uname;
 	CMyField m_password;
 };
 
+///////////////////////////////////////////////////////////
+// demo
+#define CLASSNAME_DEMOSTRUCT "DEMOSTRUCT"
+class demoStruct : public CMyBase
+{
+public:
+	demoStruct(const QVariant &val = NULL);
+	~demoStruct();
+
+	void setBondid(const CMyField &bondid);
+	const CMyField &getBondid() const;
+
+	void setBid(const CMyField &bid);
+	const CMyField &getBid() const;
+
+	void setOfr(const CMyField &ofr);
+	const CMyField &getOfr() const;
+
+	void setVolBid(const CMyField &volbid);
+	const CMyField &getVolBid() const;
+
+	void setVolOfr(const CMyField &volofr);
+	const CMyField &getVolOfr() const;
+
+	void setSN(const CMyField &sn);
+	const CMyField &getSN() const;
+
+	const QVariantMap toJson();
+	bool fromJson(const QVariantMap &val);
+
+private:
+	CMyField m_bondid;
+	CMyField m_bid;
+	CMyField m_ofr;
+	CMyField m_volBid;
+	CMyField m_volOfr;
+	CMyField m_sn;
+};

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<link href="qrc:/web/default/web/commoncss/webkit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="qrc:/web/default/web/commonjs/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="qrc:/web/default/web/commonjs/qwebchannel.js"></script>
+		<script type="text/javascript" src="qrc:/web/default/web/commonjs/webgetway.js"></script>
+		
+        <script type="text/javascript">
+            //BEGIN SETUP
+            function updateData(message)
+            {  
+                var output = document.getElementById("keylists");
+                var datas  = $.parseJSON(message);
+				for (var i = 0; i < datas.length; i++)
+				{
+					var row = output.insertRow(output.rows.length);
+					var cell0 = row.insertCell(0);
+					cell0.innerHTML = datas[i].bondid;
+					var cell1 = row.insertCell(1);
+					cell1.innerHTML = datas[i].bid;
+					var cell2 = row.insertCell(2);
+					cell2.innerHTML = datas[i].volbid;
+					var cell3 = row.insertCell(3);
+					cell3.innerHTML = datas[i].ofr;
+					var cell4 = row.insertCell(4);
+					cell4.innerHTML = datas[i].volofr;
+					var cell5 = row.insertCell(5);
+					cell5.innerHTML = datas[i].sn;
+				}
+            } 
+            //END SETUP
+        </script>
+        <style type="text/css">
+            html {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="output">
+		<table id="keylists">
+        </table>
+		</textarea>
+    </body>
+</html>

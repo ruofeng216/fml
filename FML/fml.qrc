@@ -18,4 +18,11 @@
     <qresource prefix="/syswnd">
         <file>widgets.qm</file>
     </qresource>
+    <qresource prefix="/web">
+        <file alias="default/web/demo/1.html">skin/default/web/demo/1.html</file>
+        <file alias="default/web/commonjs/jquery-3.1.1.js">skin/default/web/commonjs/jquery-3.1.1.js</file>
+        <file alias="default/web/commonjs/qwebchannel.js">skin/default/web/commonjs/qwebchannel.js</file>
+        <file alias="default/web/commonjs/webgetway.js">skin/default/web/commonjs/webgetway.js</file>
+        <file alias="default/web/commoncss/webkit.css">skin/default/web/commoncss/webkit.css</file>
+    </qresource>
 </RCC>

@@ -3,6 +3,7 @@
 #include <qt_windows.h>
 #include <QPoint>
 #include <QSize>
+#include <QVariantMap>
 #include "pro.h"
 
 namespace qutil
@@ -48,4 +49,12 @@ namespace qutil
 	STRINGUTF8 WStringToUTF8(const std::wstring& str);
 	std::string getWindowsLastErrString();
 	std::string getFormatString(const char *fmt, ...);
+}
+
+
+
+namespace json
+{
+	QVariantMap toMap(const QByteArray &val);
+	QString toString(const QVariantMap &val);
 }

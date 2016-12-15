@@ -14,8 +14,9 @@
 #include "commonui/view_basicui.h"
 #include "winmodel.h"
 
-#include "view/login/login.h"
-#include "view/mainframe/fml.h"
+#include "login/login.h"
+#include "mainframe/fml.h"
+#include "webview/webviewsever.h"
 
 
 ViewController::ViewController(QObject *parent)
@@ -25,6 +26,8 @@ ViewController::ViewController(QObject *parent)
 		QControllerManager::instance()->release(); // 删除控制层
 	});
 	connect(VIEWSIGNAL, &ViewSignalManager::sigExitProgramme, this, &ViewController::exitProgramme, Qt::QueuedConnection);
+
+	connect(VIEWSIGNAL, &ViewSignalManager::callBackUI, this, &ViewController::slotCallBackUI, Qt::QueuedConnection);
 }
 
 ViewController::~ViewController()
@@ -294,6 +297,19 @@ void ViewController::slotloginexit(const QString &id, bool isExit)
 	emit ViewSignalManager::instance()->sigExitProgramme();
 }
 
+// 响应后台推送及回掉处理
+void ViewController::slotCallBackUI(const CMyBasePtr val)
+{
+	if (!val) return;
+	QString classname = val->getClassName();
+	if (classname == CLASSNAME_DEMOSTRUCT)
+	{
+		demoStruct *s = static_cast<demoStruct *>(val.data());
+		emit pushDemoData(*s);
+	}
+}
+
+
 void ViewController::exitProgramme(bool btips)
 {
 	if (btips)
@@ -302,13 +318,14 @@ void ViewController::exitProgramme(bool btips)
 
 	// 删除所有信号槽
 	disconnect(VIEWSIGNAL, 0, 0, 0);
-
 	for (auto iter=m_widgets.begin(); iter != m_widgets.end(); ++iter) {
 		QPointer<QWidget> p(*iter);
 		if (!p.isNull()) {
 			p->hide();
 		}
 	}
+	
+
 	qApp->quit();
 }
 

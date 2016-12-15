@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include "inc/controller_interface.h"
+#include "democrawler.h"
 
 class QControllerManager : public QObject
 {
@@ -18,8 +19,15 @@ public:
 
 	ILogin *getLoginInst();
 
+	IDemo *getDemoInst();
+
+	void init();
+
 private:
 	static QControllerManager* s_instance;
 
 	ILogin *m_pLoginCtrl;
+
+	IDemo *m_pDemo;
+	DemoCrawler m_DemoCrawler;
 };

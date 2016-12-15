@@ -62,6 +62,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 	qInstallMessageHandler(customMessageHandler);
+#ifdef _DEBUG
+	qputenv("QTWEBENGINE_REMOTE_DEBUGGING", "9000");
+#endif
 	// If this property is true, the applications quits when the last visible primary window (i.e. window with no parent) is closed.
 	a.setQuitOnLastWindowClosed(false);
 	CrashHook crashHook(new QmCrashEvents());

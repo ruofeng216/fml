@@ -1,8 +1,12 @@
 #pragma once
 
-#include <QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include <QHash>
 #include <functional>
+#include <QtWebEngineCore/QWebEngineCallback>
+#include "util/datatype.h"
+
+
 
 class BaseWebChannel;
 class WebEnginePage;
@@ -16,7 +20,7 @@ public:
 	~BaseWebEngineView();
 
 	// 包装runJavaScript，方便管理
-	const void runjs(const QString &js, const JsResponseCb &cb = nullptr);
+	void runjs(const QString &js, const JsResponseCb &cb = nullptr);
 
 private slots:
 	// 加载成功
@@ -26,7 +30,7 @@ private slots:
 	// 链接响应
 	void hyperlinkClicked(const QUrl &);
 
-private:
+protected:
 	virtual void setWebChannel() = 0;
 
 protected:
@@ -43,6 +47,8 @@ class DemoWebview : public BaseWebEngineView
 public:
 	explicit DemoWebview(QWidget *parent);
 	~DemoWebview();
+
+	void pushDemoData(const demoStruct &val);
 
 private:
 	void setWebChannel();
