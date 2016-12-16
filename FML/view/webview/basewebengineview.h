@@ -18,6 +18,7 @@ public:
 	typedef std::function<void(const QVariant &)> JsResponseCb;
 	explicit BaseWebEngineView(QWidget *parent);
 	~BaseWebEngineView();
+	void loadHtml(const QString &url);
 
 	// 包装runJavaScript，方便管理
 	void runjs(const QString &js, const JsResponseCb &cb = nullptr);

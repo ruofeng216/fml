@@ -33,7 +33,25 @@ BaseWebEngineView::BaseWebEngineView(QWidget *parent)
 BaseWebEngineView::~BaseWebEngineView()
 {
 }
-
+void BaseWebEngineView::loadHtml(const QString &url)
+{
+	if (!url.isEmpty() && url.startsWith("qrc:/"))
+	{
+		page()->load(QUrl(url));
+	}
+	else
+	{
+		// 加载内嵌网页
+		if (url.isEmpty())
+		{
+			page()->load(QUrl("about:blank"));
+		}
+		else
+		{
+			page()->load(QUrl("file:///" + url));
+		}
+	}
+}
 // 加载成功
 void BaseWebEngineView::finish(bool bsuccess)
 {

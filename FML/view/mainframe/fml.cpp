@@ -16,15 +16,10 @@ FML::FML(QWidget *parent)
 	m_pWeball = new DemoWebview(ui.showwidget);
 	//m_pWebAdd = new DemoWebview(ui.showwidget);
 
-	QGridLayout *gridLayout = new QGridLayout(ui.showwidget);
-	gridLayout->setSpacing(0);
-	gridLayout->setContentsMargins(0, 0, 0, 0);
-	gridLayout->setObjectName(QStringLiteral("gridLayout"));
-	gridLayout->setContentsMargins(0, 0, 0, 2);
-	gridLayout->addWidget(m_pWeball, 0, 0, 1, 1);
+	ui.gridLayout->addWidget(m_pWeball, 0, 0, 1, 1);
 	//gridLayout->addWidget(m_pWebAdd, 0, 0, 1, 1);
 
-	m_pWeball->load(QUrl(qutil::skin("web/demo/1.html")));
+	m_pWeball->loadHtml(qutil::skin("web/demo/1.html"));
 }
 
 void FML::funcclick()
@@ -36,7 +31,10 @@ void FML::funcclick()
 
 void FML::slotPushDemoData(const demoStruct &val)
 {
-	m_pWeball->pushDemoData(val);
+	if (m_pWeball)
+	{
+		m_pWeball->pushDemoData(val);
+	}
 }
 
 void FML::showDetialFunc(bool bShow)

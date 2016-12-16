@@ -55,8 +55,6 @@ basicui::basicui(QWidget *parent, QWidget *contentWidget, const QString &wndid, 
 	connect(m_ui->btn_restore, SIGNAL(clicked()), this, SLOT(max()));
 	// 关闭信号槽
 	connect(m_ui->btn_close, SIGNAL(clicked()), this, SLOT(close()));
-
-	connect(m_ui->btn_func,SIGNAL(clicked()),this,SLOT(mergeWindows())); 
 	
 	m_blpressdown = false;
 	setTitleStyle(m_titlestyle);
