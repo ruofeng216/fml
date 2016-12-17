@@ -13,6 +13,7 @@ namespace qutil
 
 	// 获取皮肤
 	QString skin(const QString &name);
+	QString websrc(const QString &name);
 
 	// 内存整理
 	void cacheclean();

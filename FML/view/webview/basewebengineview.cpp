@@ -27,6 +27,8 @@ BaseWebEngineView::BaseWebEngineView(QWidget *parent)
 	setFocusPolicy(Qt::ClickFocus);
 	// 设置名称
 	setObjectName("webview_" + QUuid::createUuid().toString());
+	// 页面初始化
+	page()->load(QUrl("about:blank"));
 
 }
 
@@ -35,9 +37,9 @@ BaseWebEngineView::~BaseWebEngineView()
 }
 void BaseWebEngineView::loadHtml(const QString &url)
 {
-	if (!url.isEmpty() && url.startsWith("qrc:/"))
+	if (!url.isEmpty() && url.startsWith(":/"))
 	{
-		page()->load(QUrl(url));
+		page()->load(QUrl("qrc"+url));
 	}
 	else
 	{

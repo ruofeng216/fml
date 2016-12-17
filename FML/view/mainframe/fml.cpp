@@ -16,10 +16,10 @@ FML::FML(QWidget *parent)
 	m_pWeball = new DemoWebview(ui.showwidget);
 	//m_pWebAdd = new DemoWebview(ui.showwidget);
 
-	ui.gridLayout->addWidget(m_pWeball, 0, 0, 1, 1);
+	ui.gridLayout->addWidget(m_pWeball);
 	//gridLayout->addWidget(m_pWebAdd, 0, 0, 1, 1);
 
-	m_pWeball->loadHtml(qutil::skin("web/demo/1.html"));
+	m_pWeball->loadHtml(qutil::websrc("web/demo/1.html"));
 }
 
 void FML::funcclick()
