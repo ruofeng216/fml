@@ -24,6 +24,11 @@ namespace qutil
 		QString strtype = "default";
 		return QString(":/skin/%1/%2").arg(strtype).arg(name);
 	}
+	QString websrc(const QString &name)
+	{
+		QString strtype = "default";
+		return QString(":/web/%1/%2").arg(strtype).arg(name);
+	}
 
 	// ÄÚ´æÕûÀí
 	void cacheclean()

@@ -28,7 +28,7 @@ BaseWebEngineView::BaseWebEngineView(QWidget *parent)
 	// 设置名称
 	setObjectName("webview_" + QUuid::createUuid().toString());
 	// 页面初始化
-	page()->load(QUrl("about:blank"));
+	//page()->load(QUrl("about:blank"));
 
 }
 
@@ -37,6 +37,7 @@ BaseWebEngineView::~BaseWebEngineView()
 }
 void BaseWebEngineView::loadHtml(const QString &url)
 {
+	m_isWebLoadFinished = false;
 	if (!url.isEmpty() && url.startsWith(":/"))
 	{
 		page()->load(QUrl("qrc"+url));

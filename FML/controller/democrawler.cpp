@@ -27,8 +27,10 @@ void DemoCrawler::run()
 		st->setVolBid(CMyField(QDateTime::currentMSecsSinceEpoch() / 1000 * 1000 % 10000));
 		st->setOfr(CMyField(float(QDateTime::currentMSecsSinceEpoch() % 100) / 100.0 + 2.0));
 		st->setVolOfr(CMyField(QDateTime::currentMSecsSinceEpoch() / 1000 * 1000 % 10000));
-		st->setSN(CMyField(QUuid::createUuid().toString()));
+		static int a = 1;
+		st->setSN(CMyField(QString::number(a)));
+		a++;
 		emit VIEWSIGNAL->callBackUI(s);
-		msleep(10);
+		msleep(50);
 	}
 }

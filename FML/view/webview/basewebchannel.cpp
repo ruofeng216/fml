@@ -8,9 +8,9 @@ BaseWebChannel::BaseWebChannel(QObject *parent)
 	: QObject(parent)
 {
 	m_channel = new QWebChannel(this);
+	m_channel->registerObject("CallCpp", this);
 	QObject::connect(WEBVIEWSEVER->getWrapper(), &WebSocketClientWrapper::clientConnected,
 		m_channel, &QWebChannel::connectTo);
-	m_channel->registerObject("CallCpp", this);
 }
 
 BaseWebChannel::~BaseWebChannel()
@@ -26,7 +26,6 @@ const QWebChannel *BaseWebChannel::channel() const
 // DemolWebChannel
 DemolWebChannel::DemolWebChannel(QObject *parent)
 	: BaseWebChannel(parent)
-	, m_id(0)
 {
 }
 DemolWebChannel::~DemolWebChannel()

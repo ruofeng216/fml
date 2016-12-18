@@ -22,9 +22,11 @@ QControllerManager::~QControllerManager()
 		delete m_pDemo;
 		m_pDemo = NULL;
 	}
-
-	m_DemoCrawler.terminate();
-	m_DemoCrawler.wait();
+	if (m_DemoCrawler.isRunning())
+	{
+		m_DemoCrawler.terminate();
+		m_DemoCrawler.wait();
+	}
 }
 
 // »ñÈ¡ÊµÀý

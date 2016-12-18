@@ -23,7 +23,7 @@ ViewController::ViewController(QObject *parent)
 	: QObject(parent)
 {
 	connect(qApp, &QCoreApplication::aboutToQuit, [this]{
-		QControllerManager::instance()->release(); // 删除控制层
+		
 	});
 	connect(VIEWSIGNAL, &ViewSignalManager::sigExitProgramme, this, &ViewController::exitProgramme, Qt::QueuedConnection);
 
@@ -32,6 +32,7 @@ ViewController::ViewController(QObject *parent)
 
 ViewController::~ViewController()
 {
+	WEBVIEWSEVER->release();
 	// 销毁所有窗口
 	QMap<QString, QWidget*>::iterator iter = m_widgets.begin();
 	for ( ; iter != m_widgets.end(); ++iter) {
@@ -324,8 +325,8 @@ void ViewController::exitProgramme(bool btips)
 			p->hide();
 		}
 	}
-	
-
+	QControllerManager::instance()->release(); // 删除控制层
+	WEBVIEWSEVER->release();
 	qApp->quit();
 }
 

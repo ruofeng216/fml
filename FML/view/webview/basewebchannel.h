@@ -27,9 +27,9 @@ class DemolWebChannel : public BaseWebChannel
 public:
 	explicit DemolWebChannel(QObject *parent);
 	~DemolWebChannel();
-	int getID() { return ++m_id; }
+
 public slots:
 	const QVariant slotHandle(const QVariant &val);
 private:
-	int m_id;
+	
 };

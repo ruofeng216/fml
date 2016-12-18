@@ -37,15 +37,6 @@ html {
     overflow-x: hidden;
     overflow-y: auto;
 }
-@font-face {
-    /* font-properties */
-    font-family: pictos;
-    src:url('../fonts/glyphicons-halflings-regular.woff'),
-    url('../fonts/glyphicons-halflings-regular.woff2'),
-    url('../fonts/glyphicons-halflings-regular.ttf'),
-    url('../fonts/glyphicons-halflings-regular.svg'),
-    url('../fonts/glyphicons-halflings-regular.eot');
-}
 body
 {
 	background:black;
