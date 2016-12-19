@@ -32,13 +32,7 @@ ViewController::ViewController(QObject *parent)
 
 ViewController::~ViewController()
 {
-	WEBVIEWSEVER->release();
-	// 销毁所有窗口
-	QMap<QString, QWidget*>::iterator iter = m_widgets.begin();
-	for ( ; iter != m_widgets.end(); ++iter) {
-		basicui *p = static_cast<basicui*>(iter.value());
-		p->deleteLater();
-	}
+	
 }
 
 ViewController *ViewController::instance()
@@ -327,6 +321,12 @@ void ViewController::exitProgramme(bool btips)
 	}
 	QControllerManager::instance()->release(); // 删除控制层
 	WEBVIEWSEVER->release();
+	// 销毁所有窗口
+	QMap<QString, QWidget*>::iterator iter = m_widgets.begin();
+	for (; iter != m_widgets.end(); ++iter) {
+		basicui *p = static_cast<basicui*>(iter.value());
+		p->deleteLater();
+	}
 	qApp->quit();
 }
 

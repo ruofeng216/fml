@@ -24,5 +24,6 @@
         <file alias="default/web/commonjs/webgetway.js">skin/default/web/commonjs/webgetway.js</file>
         <file alias="default/web/commoncss/webkit.css">skin/default/web/commoncss/webkit.css</file>
         <file alias="default/web/commonjs/jquery.js">skin/default/web/commonjs/jquery.js</file>
+        <file alias="default/web/demo/2.html">skin/default/web/demo/2.html</file>
     </qresource>
 </RCC>

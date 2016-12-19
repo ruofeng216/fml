@@ -225,10 +225,10 @@ bool demoStruct::fromJson(const QVariantMap &val)
 	{
 		if (val.contains(getBondid().getKey())) setBondid(CMyField(val[getBondid().getKey()].toString()));
 		if (val.contains(getBid().getKey())) setBid(CMyField(val[getBid().getKey()].toString()));
-		if (val.contains(getVolBid().getKey())) setBid(CMyField(val[getVolBid().getKey()].toString()));
-		if (val.contains(getOfr().getKey())) setBid(CMyField(val[getOfr().getKey()].toString()));
-		if (val.contains(getVolOfr().getKey())) setBid(CMyField(val[getVolOfr().getKey()].toString()));
-		if (val.contains(getSN().getKey())) setBid(CMyField(val[getSN().getKey()].toString()));
+		if (val.contains(getVolBid().getKey())) setVolBid(CMyField(val[getVolBid().getKey()].toString()));
+		if (val.contains(getOfr().getKey())) setOfr(CMyField(val[getOfr().getKey()].toString()));
+		if (val.contains(getVolOfr().getKey())) setVolOfr(CMyField(val[getVolOfr().getKey()].toString()));
+		if (val.contains(getSN().getKey())) setSN(CMyField(val[getSN().getKey()].toString()));
 		return true;
 	}
 	return false;

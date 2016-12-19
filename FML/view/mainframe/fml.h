@@ -26,5 +26,5 @@ private:
     Ui::FMLClass ui;
 	bool m_showFunc;
 	DemoWebview *m_pWeball;
-	DemoWebview *m_pWebAdd;
+	DemoWebview1 *m_pWebAdd;
 };

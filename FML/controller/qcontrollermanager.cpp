@@ -58,14 +58,19 @@ ILogin *QControllerManager::getLoginInst()
 
 IDemo *QControllerManager::getDemoInst()
 {
-	if (m_pLoginCtrl == NULL)
+	if (m_pDemo == NULL)
 	{
 		m_pDemo = new CDemoController();
 	}
 	return m_pDemo;
 }
 
-void QControllerManager::init()
+void QControllerManager::startMonitor()
 {
 	m_DemoCrawler.start();
+}
+
+void QControllerManager::stopMonitor()
+{
+	m_DemoCrawler.terminate();
 }

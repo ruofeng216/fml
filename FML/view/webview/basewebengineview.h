@@ -51,6 +51,19 @@ public:
 
 	void pushDemoData(const demoStruct &val);
 
+	QString getTitle();
+private:
+	void setWebChannel();
+};
+
+class DemoWebview1 : public BaseWebEngineView
+{
+	Q_OBJECT
+
+public:
+	explicit DemoWebview1(QWidget *parent);
+	~DemoWebview1();
+	QString getTitle();
 private:
 	void setWebChannel();
 };

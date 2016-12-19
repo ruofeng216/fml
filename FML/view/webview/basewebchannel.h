@@ -33,3 +33,16 @@ public slots:
 private:
 	
 };
+
+class DemolWebChannel1 : public BaseWebChannel
+{
+	Q_OBJECT
+public:
+	explicit DemolWebChannel1(QObject *parent);
+	~DemolWebChannel1();
+
+public slots:
+	const QVariant slotHandle(const QVariant &val);
+private:
+
+};

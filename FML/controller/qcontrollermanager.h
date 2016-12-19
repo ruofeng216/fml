@@ -21,7 +21,8 @@ public:
 
 	IDemo *getDemoInst();
 
-	void init();
+	void startMonitor();
+	void stopMonitor();
 
 private:
 	static QControllerManager* s_instance;

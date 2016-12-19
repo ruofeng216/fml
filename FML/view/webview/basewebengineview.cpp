@@ -113,7 +113,6 @@ void BaseWebEngineView::runjs(const QString &js, const JsResponseCb &cb)
 
 
 //////////////////////////////////////////////////////////////////
-#include <QTimer>
 //DemoWebview
 DemoWebview::DemoWebview(QWidget *parent)
 	: BaseWebEngineView(parent)
@@ -135,4 +134,30 @@ void DemoWebview::pushDemoData(const demoStruct &val)
 	demoStruct t = val;
 	QString str = QString("updateData('%1')").arg(json::toString(t.toJson()));
 	runjs(str);
+}
+
+QString DemoWebview::getTitle()
+{
+	return page()->title();
+}
+
+//DemoWebview
+DemoWebview1::DemoWebview1(QWidget *parent)
+	: BaseWebEngineView(parent)
+{
+	setWebChannel();
+}
+DemoWebview1::~DemoWebview1()
+{
+
+}
+
+void DemoWebview1::setWebChannel()
+{
+	m_pWebChannel = new DemolWebChannel1(this);
+}
+
+QString DemoWebview1::getTitle()
+{
+	return page()->title();
 }

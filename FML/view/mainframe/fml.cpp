@@ -15,20 +15,21 @@ FML::FML(QWidget *parent)
 	connect(ui.funcShow, SIGNAL(clicked()), this, SLOT(funcclick()));
 
 	m_pWeball = new DemoWebview(this);
-	//m_pWebAdd = new DemoWebview(ui.showwidget);
+	m_pWebAdd = new DemoWebview1(this);
 
-	ui.gridLayout->addWidget(m_pWeball);
-	//gridLayout->addWidget(m_pWebAdd, 0, 0, 1, 1);
+	ui.gridLayout_3->addWidget(m_pWeball);
+	ui.gridLayout_4->addWidget(m_pWebAdd);
 
 	connect(ViewController::instance(), &ViewController::pushDemoData, this, &FML::slotPushDemoData);
+
+	m_pWeball->loadHtml(qutil::websrc("web/demo/1.html"));
+	m_pWebAdd->loadHtml(qutil::websrc("web/demo/2.html"));
 }
 
 void FML::funcclick()
 {
-	m_pWeball->loadHtml(qutil::websrc("web/demo/1.html"));
 	m_showFunc = !m_showFunc;
 	showDetialFunc(m_showFunc);
-	QControllerManager::instance()->init();
 }
 
 void FML::slotPushDemoData(const demoStruct &val)

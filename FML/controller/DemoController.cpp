@@ -1,7 +1,9 @@
 #include "DemoController.h"
 #include <QMutexLocker>
 #include "viewsignalmanager.h"
+#include <QUuid>
 
+int CDemoController::m_sn = 0;
 CDemoController::CDemoController()
 {
 }
@@ -16,6 +18,7 @@ bool CDemoController::setData(const QVariant &val)
 	QMutexLocker lock(&m_lock);
 	demoStruct *t = new demoStruct;
 	t->fromJson(val.toMap());
+	t->setSN(CMyField(getSN()));
 	m_datas[t->getSN().getVal().toString()] = *t;
 	emit VIEWSIGNAL->callBackUI(CMyBasePtr(t));
 	return true;
@@ -31,4 +34,9 @@ void CDemoController::getData(QVariant &val, int count)
 		rt.append(m_datas[lst[i]].toJson());
 	}
 	val = QVariant(rt);
+}
+
+int CDemoController::getSN()
+{
+	return ++m_sn;
 }

@@ -14,9 +14,10 @@ public:
 
 	void getData(QVariant &val, int count = 20);
 
-
+	int getSN();
 private:
 	QMutex m_lock;
 	QMap<QString, demoStruct> m_datas;
+	static int m_sn;
 };
 

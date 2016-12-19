@@ -3,6 +3,8 @@
 #include "webviewsever.h"
 #include "websockettransport.h"
 #include <QDebug>
+#include "util/datatype.h"
+#include "controller/qcontrollermanager.h"
 
 BaseWebChannel::BaseWebChannel(QObject *parent)
 	: QObject(parent)
@@ -34,7 +36,29 @@ DemolWebChannel::~DemolWebChannel()
 
 const QVariant DemolWebChannel::slotHandle(const QVariant &val)
 {
-	qDebug() << "C++ get js push : " << val;
-	QString s = val.toString();
-	return QString("c++ return js : %1 ").arg(s) ;
+	return QVariant();
+}
+// DemolWebChannel
+DemolWebChannel1::DemolWebChannel1(QObject *parent)
+	: BaseWebChannel(parent)
+{
+}
+DemolWebChannel1::~DemolWebChannel1()
+{
+}
+
+const QVariant DemolWebChannel1::slotHandle(const QVariant &val)
+{
+	QVariant ss = val;
+	if (ss.toMap().contains("function") && ss.toMap()["function"].toString() == "adding")
+		QControllerManager::instance()->getDemoInst()->setData(ss);
+	else if (ss.toMap().contains("function") && ss.toMap()["function"].toString() == "monitoring")
+	{
+		bool ismonitor = ss.toMap()["ismonitor"].toBool();
+		if (ismonitor)
+			QControllerManager::instance()->startMonitor();
+		else
+			QControllerManager::instance()->stopMonitor();
+	}
+	return QVariant();
 }

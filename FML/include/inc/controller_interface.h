@@ -22,4 +22,5 @@ public:
 	virtual bool setData(const QVariant &val) = 0;
 
 	virtual void getData(QVariant &val, int count = 20) = 0;
+	virtual int getSN() = 0;
 };
