@@ -69,6 +69,51 @@ protected:
 };
 
 ///////////////////////////////////////////////////////////
+// ¹¦ÄÜµ¼º½
+#define CLASSNAME_CFUNCINFO "CFuncInfo"
+class CFuncInfo : public CMyBase
+{
+public:
+	CFuncInfo();
+	~CFuncInfo();
+	void setFuncName(const CMyField &funcname);
+	const CMyField &getFuncName() const;
+
+	void setFuncID(const CMyField &funcID);
+	const CMyField &getFuncID() const;
+
+	void setFuncDesc(const CMyField &funcdesc);
+	const CMyField &getFuncDesc() const;
+
+	void setOrder(const CMyField &order);
+	const CMyField &getOrder() const;
+
+	const QVariantMap toJson();
+	bool fromJson(const QVariantMap &val);
+
+protected:
+	CMyField m_FuncName;
+	CMyField m_FuncID;
+	CMyField m_FuncDesc;
+	CMyField m_Order;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
 // demo
 #define CLASSNAME_DEMOSTRUCT "DEMOSTRUCT"
 class demoStruct : public CMyBase

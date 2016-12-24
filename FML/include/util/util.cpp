@@ -29,6 +29,11 @@ namespace qutil
 		QString strtype = "default";
 		return QString(":/web/%1/%2").arg(strtype).arg(name);
 	}
+	QString setDef(const QString &name)
+	{
+		QString strtype = "default";
+		return QString(":/set/%1/%2").arg(strtype).arg(name);
+	}
 
 	// 内存整理
 	void cacheclean()
@@ -287,6 +292,21 @@ namespace qutil
 		return buffer;
 	}
 
+	// 获取xml的Dom树
+	const QDomDocument GetXmlDom(const QString &path)
+	{
+		QDomDocument doc;
+		QFile xmlFile(path);
+		if (!xmlFile.open(QIODevice::ReadOnly)) {
+			return doc;
+		}
+		if (!doc.setContent(&xmlFile)) {
+			xmlFile.close();
+			return doc;
+		}
+		xmlFile.close();
+		return doc;
+	}
 }
 
 namespace json

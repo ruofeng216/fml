@@ -285,6 +285,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_webviewsever.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="controller\globalsetcontroller.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="fml.qrc">
@@ -415,6 +418,9 @@
     </CustomBuild>
     <CustomBuild Include="view\webview\webviewsever.h">
       <Filter>view\webview</Filter>
+    </CustomBuild>
+    <CustomBuild Include="controller\globalsetcontroller.h">
+      <Filter>controller</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

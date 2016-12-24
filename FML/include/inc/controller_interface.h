@@ -14,6 +14,24 @@ public:
 	virtual eERR modifyLogin(const QString &uname, const QString &pswd) = 0;
 };
 
+class IGlobalSetting
+{
+public:
+	virtual ~IGlobalSetting() = 0;
+	// 获取功能根节点菜单
+	virtual void getRootFunc(QStringList &rootVal) = 0;
+	// 获取功能子节点菜单
+	virtual void getChildrenFunc(const QString &funcid, QStringList &chVal) = 0;
+	// 获取功能父节点菜单
+	virtual void getParentFunc(const QString &funcid, QString &parval) = 0;
+	// 获取功能info
+	virtual void getFuncInfo(const QString &funcid, CFuncInfo &funcinfo) = 0;
+	
+};
+
+
+
+
 class IDemo
 {
 public:

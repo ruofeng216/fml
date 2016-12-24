@@ -17,10 +17,7 @@ public:
     FML(QWidget *parent = Q_NULLPTR);
 	
 private slots:
-	void funcclick();
 	void slotPushDemoData(const demoStruct &val);
-private:
-	void showDetialFunc(bool bShow = true);
 
 private:
     Ui::FMLClass ui;

@@ -10,21 +10,92 @@
     </message>
     <message>
         <location filename="view/mainframe/fml.ui" line="110"/>
-        <location filename="view/mainframe/fml.ui" line="187"/>
-        <location filename="view/mainframe/fml.ui" line="192"/>
-        <location filename="view/mainframe/fml.ui" line="197"/>
-        <source>1</source>
+        <location filename="view/mainframe/fml.ui" line="113"/>
+        <source>系统管理</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="view/mainframe/fml.ui" line="115"/>
-        <source>2</source>
+        <location filename="view/mainframe/fml.ui" line="118"/>
+        <location filename="view/mainframe/fml.ui" line="121"/>
+        <source>参数管理</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="view/mainframe/fml.ui" line="135"/>
-        <source>PushButton</source>
+        <location filename="view/mainframe/fml.ui" line="126"/>
+        <location filename="view/mainframe/fml.ui" line="129"/>
+        <source>收益率曲线定义</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="134"/>
+        <location filename="view/mainframe/fml.ui" line="137"/>
+        <source>收益率曲线管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="142"/>
+        <location filename="view/mainframe/fml.ui" line="145"/>
+        <source>数据批量导入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="150"/>
+        <location filename="view/mainframe/fml.ui" line="153"/>
+        <source>交易台账</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="158"/>
+        <location filename="view/mainframe/fml.ui" line="161"/>
+        <source>组合管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="166"/>
+        <location filename="view/mainframe/fml.ui" line="169"/>
+        <source>交易行情实时接口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="174"/>
+        <location filename="view/mainframe/fml.ui" line="177"/>
+        <source>行情及敞口综合监控</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="249"/>
+        <location filename="view/mainframe/fml.ui" line="252"/>
+        <source>用户管理</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="257"/>
+        <location filename="view/mainframe/fml.ui" line="260"/>
+        <source>工作日切换</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="298"/>
+        <source>监控</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="view/mainframe/fml.ui" line="320"/>
+        <source>录入</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainTitle</name>
+    <message>
+        <location filename="view/commonui/title_widget.cpp" line="85"/>
+        <source>SysBook</source>
+        <translation type="unfinished">功能目录</translation>
+    </message>
+    <message>
+        <location filename="view/commonui/title_widget.cpp" line="91"/>
+        <source>Navigation function</source>
+        <translation type="unfinished">功能导航</translation>
     </message>
 </context>
 <context>

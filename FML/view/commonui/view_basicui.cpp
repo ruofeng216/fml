@@ -20,9 +20,18 @@ basicui::basicui(QWidget *parent, QWidget *contentWidget, const QString &wndid, 
 	, m_dir(MIDDLE)
 	, m_title(title)
 {
-
 	this->setObjectName(wndid);
 	m_ui->setupUi(this);
+	bool isNoTitle = m_titlestyle & TS_NONE;
+	if (!isNoTitle)
+	{
+		TitleWidget *ptitle = new TitleWidget(this);
+		bool isLogoVisible = (m_titlestyle & TS_LOGO);
+		bool isCenter = (m_titlestyle & TS_CENTER);
+		ptitle->init(isLogoVisible ? QPixmap(qutil::skin("logo")) : QPixmap(), m_title, isCenter);
+		m_ui->horizontalLayout_2->addWidget(ptitle);
+	}
+	
 	setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::Window);
 
 	//可获取鼠标跟踪效果
@@ -36,10 +45,6 @@ basicui::basicui(QWidget *parent, QWidget *contentWidget, const QString &wndid, 
 	// 设置body
 	m_ui->gl_body->addWidget(contentWidget);
 	contentWidget->setMouseTracking(true);
-
-	bool isLogoVisible = (m_titlestyle & TS_LOGO);
-	bool isCenter = (m_titlestyle & TS_CENTER);
-	m_ui->widget->init(isLogoVisible?QPixmap(qutil::skin("logo")):QPixmap(), m_title, isCenter);
 	setWindowTitle(m_title);
 	
 	m_ui->btn_min->init(IDBResourceNS::BASICUI_TITLE_MIN);
@@ -380,4 +385,20 @@ void basicui::transRegion(const QPoint &cursorGlobalPoint)
 	} else {
 		m_dir = MIDDLE; // 默认
 	}
+}
+
+
+////////////////////////////////////////////////////////////////////
+MainWidget::MainWidget(QWidget *parent, QWidget *contentWidget, const QString &wndid,
+	const QString &title, int titlestyle)
+	: basicui(parent, contentWidget, wndid, title, titlestyle|TS_NONE)
+{
+	m_titlestyle = titlestyle;
+	MainTitle *ptitle = new MainTitle(this);
+	bool isLogoVisible = (m_titlestyle & TS_LOGO);
+	ptitle->init(isLogoVisible ? QPixmap(qutil::skin("logo")) : QPixmap(), m_title);
+	m_ui->horizontalLayout_2->addWidget(ptitle);
+}
+MainWidget::~MainWidget()
+{
 }

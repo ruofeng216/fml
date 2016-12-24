@@ -5,6 +5,10 @@
 #include <QSize>
 #include <QVariantMap>
 #include "pro.h"
+#include <QDomDocument>
+#include <QFile>
+#include <QDir>
+#include <QTextStream>
 
 namespace qutil
 {
@@ -14,6 +18,7 @@ namespace qutil
 	// 获取皮肤
 	QString skin(const QString &name);
 	QString websrc(const QString &name);
+	QString setDef(const QString &name);
 
 	// 内存整理
 	void cacheclean();
@@ -50,6 +55,10 @@ namespace qutil
 	STRINGUTF8 WStringToUTF8(const std::wstring& str);
 	std::string getWindowsLastErrString();
 	std::string getFormatString(const char *fmt, ...);
+
+
+	// 获取xml的Dom树
+	const QDomDocument GetXmlDom(const QString &path);
 }
 
 

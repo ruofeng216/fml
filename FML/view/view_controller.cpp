@@ -8,6 +8,7 @@
 #include <QVariantMap>
 #include <QTimer>
 #include <QEventLoop>
+#include <QRect>
 
 #include "viewsignalmanager/viewsignalmanager.h"
 #include "controller/qcontrollermanager.h"
@@ -17,6 +18,7 @@
 #include "login/login.h"
 #include "mainframe/fml.h"
 #include "webview/webviewsever.h"
+#include "view/commonui/message_box_widget.h"
 
 
 ViewController::ViewController(QObject *parent)
@@ -28,6 +30,7 @@ ViewController::ViewController(QObject *parent)
 	connect(VIEWSIGNAL, &ViewSignalManager::sigExitProgramme, this, &ViewController::exitProgramme, Qt::QueuedConnection);
 
 	connect(VIEWSIGNAL, &ViewSignalManager::callBackUI, this, &ViewController::slotCallBackUI, Qt::QueuedConnection);
+	connect(this, &ViewController::sigGotoFunc, this, &ViewController::slotGotoFunc);
 }
 
 ViewController::~ViewController()
@@ -90,9 +93,12 @@ QWidget* ViewController::create(const QString &id, const QString &title, const Q
 		pwnd = new basicui(NULL, new login(), id, title, basicui::TS_CLOSE|basicui::TS_MIN|basicui::TS_LEFT|basicui::TS_LOGO);
 		pwnd->resize(LOGIN_INIT_WIDTH, LOGIN_INIT_HEIGHT);
 	} else if (MAIN_WINDOW_ID == id) { // 主窗口
-		pwnd = new basicui(NULL, new FML(), id, title,basicui::TS_CLOSE|basicui::TS_MAX|basicui::TS_MIN|basicui::TS_LEFT|basicui::TS_LOGO);
+		pwnd = new MainWidget(NULL, new FML(), id, title, basicui::TS_CLOSE | basicui::TS_MAX | basicui::TS_MIN | basicui::TS_LEFT | basicui::TS_LOGO);
 		//pwnd->setCloseIsHide(true);
-		pwnd->resize(MAIN_INIT_WIDTH, MAIN_INIT_HEIGHT);
+		//获取可用桌面大小
+		QRect deskRect = QApplication::desktop()->availableGeometry();
+		pwnd->resize(deskRect.width()*0.8>MAIN_INIT_WIDTH ? deskRect.width()*0.8 : MAIN_INIT_WIDTH,
+			deskRect.height()*0.8>MAIN_INIT_HEIGHT ? deskRect.height()*0.8 : MAIN_INIT_HEIGHT);
 	}
 
 	if (pwnd) {
@@ -302,6 +308,14 @@ void ViewController::slotCallBackUI(const CMyBasePtr val)
 		demoStruct *s = static_cast<demoStruct *>(val.data());
 		emit pushDemoData(*s);
 	}
+}
+
+// 功能导航
+void ViewController::slotGotoFunc(const QString &funcid)
+{
+	CFuncInfo cf;
+	GLBSETCTL->getFuncInfo(funcid, cf);
+	ShowWarnMessage(tr("func"), cf.getFuncName().getVal().toString(), NULL);
 }
 
 

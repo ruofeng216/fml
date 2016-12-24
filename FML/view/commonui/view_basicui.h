@@ -9,7 +9,6 @@
 namespace Ui {
 	class basic;
 }
-class TitleWidget;
 class basicui : public QWidget
 {
 	Q_OBJECT
@@ -17,14 +16,14 @@ class basicui : public QWidget
 public:
 	enum TitleStyle 
 	{
-		TS_NONE = 0,		// 无标题
-		TS_CLOSE = 1<<0,	// 关闭
-		TS_MAX =1<<1 ,		// 最大化,双击标题最大化，不显示最大化按钮！
-		TS_MIN = 1<<2,		// 最小化
-		TS_FUNC = 1<<3,		// 功能
-		TS_LEFT =1<<4,		// 标题在左边
-		TS_CENTER= 1<<5,	// 标题居中
-		TS_LOGO =1<<6,		// LOGO
+		TS_NONE = 1,		// 无标题
+		TS_CLOSE = 1<<1,	// 关闭
+		TS_MAX =1<<2 ,		// 最大化,双击标题最大化，不显示最大化按钮！
+		TS_MIN = 1<<3,		// 最小化
+		TS_FUNC = 1<<4,		// 功能
+		TS_LEFT =1<<5,		// 标题在左边
+		TS_CENTER= 1<<6,	// 标题居中
+		TS_LOGO =1<<7,		// LOGO
 	};
 
 	explicit basicui(QWidget *parent, QWidget *contentWidget, const QString &wndid, 
@@ -69,7 +68,7 @@ protected:
 
 	bool m_blpressdown; //鼠标按下
 	
-private:
+protected:
 	Ui::basic *m_ui;
 	QString m_wndid;
 	QPoint m_movepoint; //移动的距离 
@@ -80,4 +79,15 @@ private:
 	QWidget *m_contentWidget; // 主窗口区域
 	QPixmap m_bgImage; //背景图片
 	QString m_title; //标题内容
+};
+
+
+class MainWidget : public basicui
+{
+public:
+	MainWidget(QWidget *parent, QWidget *contentWidget, const QString &wndid,
+		const QString &title, int titlestyle = TS_LOGO | TS_MAX | TS_CLOSE | TS_MIN | TS_LEFT);
+	~MainWidget();
+
+
 };

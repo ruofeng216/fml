@@ -121,6 +121,91 @@ bool CLogin::fromJson(const QVariantMap &val)
 	}
 	return false;
 }
+//////////////////////////////////////////////////////////////////////////
+CFuncInfo::CFuncInfo()
+	:CMyBase(CLASSNAME_CFUNCINFO)
+{
+	m_FuncName.setKey("funcname");
+	m_FuncID.setKey("funcid");
+	m_FuncDesc.setKey("funcdesc");
+	m_Order.setKey("order");
+}
+CFuncInfo::~CFuncInfo()
+{
+}
+void CFuncInfo::setFuncName(const CMyField &funcname)
+{
+	m_FuncName.setVal(funcname.getVal());
+	if (m_FuncName.getDes().isEmpty())
+		m_FuncName.setDes(funcname.getDes());
+}
+const CMyField &CFuncInfo::getFuncName() const
+{
+	return m_FuncName;
+}
+
+void CFuncInfo::setFuncID(const CMyField &funcID)
+{
+	m_FuncID.setVal(funcID.getVal());
+	if (m_FuncID.getDes().isEmpty())
+		m_FuncID.setDes(funcID.getDes());
+}
+const CMyField &CFuncInfo::getFuncID() const
+{
+	return m_FuncID;
+}
+
+void CFuncInfo::setFuncDesc(const CMyField &funcdesc)
+{
+	m_FuncDesc.setVal(funcdesc.getVal());
+	if (m_FuncDesc.getDes().isEmpty())
+		m_FuncDesc.setDes(funcdesc.getDes());
+}
+const CMyField &CFuncInfo::getFuncDesc() const
+{
+	return m_FuncDesc;
+}
+
+void CFuncInfo::setOrder(const CMyField &order)
+{
+	m_Order.setVal(order.getVal());
+	if (m_Order.getDes().isEmpty())
+		m_Order.setDes(order.getDes());
+}
+const CMyField &CFuncInfo::getOrder() const
+{
+	return m_Order;
+}
+
+const QVariantMap CFuncInfo::toJson()
+{
+	QVariantMap mJson;
+	mJson["classname"] = getClassName();
+	mJson[getFuncName().getKey()] = getFuncName().getVal();
+	mJson[getFuncID().getKey()] = getFuncID().getVal();
+	mJson[getFuncDesc().getKey()] = getFuncDesc().getVal();
+	mJson[getOrder().getKey()] = getOrder().getVal();
+	return mJson;
+}
+bool CFuncInfo::fromJson(const QVariantMap &val)
+{
+	return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////
 
 demoStruct::demoStruct(const QVariant &val)

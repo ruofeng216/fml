@@ -2,3 +2,4 @@
 
 ILogin::~ILogin() {}
 IDemo::~IDemo() {}
+IGlobalSetting::~IGlobalSetting() {}

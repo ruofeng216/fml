@@ -10,6 +10,7 @@ QPushButton,QToolButton{
     color:#FFFFFF;
     font-size:12px;
     height:30px;
+    border-radius: 3px;
 }
 
 QPushButton::hover,QToolButton::hover{
@@ -182,14 +183,15 @@ QLineEdit{
     font-size:12px;
     height:30px;
     selection-background-color:#0e9496;
-    border:none;
+    border-radius: 3px;
+    border:1px;
 }
 
 QLineEdit::hover{
-    background:#3c3c41;
+    background:#505057;
 }
 QLineEdit::pressed{
-    background:#323237;
+    background:#505057;
 }
 QLineEdit::disabled{
     background:#36383d;
@@ -213,7 +215,7 @@ QTreeWidget::focus{
     border: 0px solid #099190;
 }
 
-/** ·Ö¸ôÏß **/
+/** ï¿½Ö¸ï¿½ï¿½ï¿½ **/
 IDBLine
 {
     background:#3c3c41;

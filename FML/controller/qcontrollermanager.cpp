@@ -7,6 +7,7 @@ QControllerManager::QControllerManager(QObject *parent)
 	: QObject(parent)
 	, m_pLoginCtrl(NULL)
 	, m_pDemo(NULL)
+	, m_pGlobalSetting(NULL)
 {
 }
 
@@ -55,6 +56,17 @@ ILogin *QControllerManager::getLoginInst()
 	}
 	return m_pLoginCtrl;
 }
+
+IGlobalSetting *QControllerManager::getGlobalSettingInst()
+{
+	if (m_pGlobalSetting == NULL)
+	{
+		m_pGlobalSetting = new GlobalSetController();
+	}
+	return m_pGlobalSetting;
+}
+
+
 
 IDemo *QControllerManager::getDemoInst()
 {

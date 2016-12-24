@@ -67,6 +67,9 @@ signals:
 	// DemoData
 	void pushDemoData(const demoStruct &val);
 
+	// 功能导航
+	void sigGotoFunc(const QString &funcid);
+
 public slots:
 	void closewnd(const QString &id /* 窗口ID */, bool bdestory = true);
 	
@@ -77,6 +80,8 @@ private slots:
 	void slotloginexit(const QString &id = "", bool isExit = true);
 	// 响应后台推送及回掉处理
 	void slotCallBackUI(const CMyBasePtr val);
+	// 功能导航
+	void slotGotoFunc(const QString &funcid);
 
 private:
 	ViewController(QObject *parent = 0);

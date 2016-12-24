@@ -26,7 +26,7 @@
      <height>600</height>
     </size>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -43,14 +43,17 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="spacing">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
        <number>0</number>
       </property>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <property name="spacing">
-         <number>2</number>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>监控</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <property name="leftMargin">
+         <number>0</number>
         </property>
         <property name="topMargin">
          <number>0</number>
@@ -59,287 +62,35 @@
          <number>0</number>
         </property>
         <property name="bottomMargin">
-         <number>2</number>
-        </property>
-        <item>
-         <widget class="QListWidget" name="listFunc">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>40</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarAlwaysOff</enum>
-          </property>
-          <property name="verticalScrollMode">
-           <enum>QAbstractItemView::ScrollPerItem</enum>
-          </property>
-          <property name="isWrapping" stdset="0">
-           <bool>false</bool>
-          </property>
-          <property name="viewMode">
-           <enum>QListView::ListMode</enum>
-          </property>
-          <property name="selectionRectVisible">
-           <bool>true</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>系统管理</string>
-           </property>
-           <property name="toolTip">
-            <string>系统管理</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>参数管理</string>
-           </property>
-           <property name="toolTip">
-            <string>参数管理</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>收益率曲线定义</string>
-           </property>
-           <property name="toolTip">
-            <string>收益率曲线定义</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>收益率曲线管理</string>
-           </property>
-           <property name="toolTip">
-            <string>收益率曲线管理</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>数据批量导入</string>
-           </property>
-           <property name="toolTip">
-            <string>数据批量导入</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>交易台账</string>
-           </property>
-           <property name="toolTip">
-            <string>交易台账</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>组合管理</string>
-           </property>
-           <property name="toolTip">
-            <string>组合管理</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>交易行情实时接口</string>
-           </property>
-           <property name="toolTip">
-            <string>交易行情实时接口</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>行情及敞口综合监控</string>
-           </property>
-           <property name="toolTip">
-            <string>行情及敞口综合监控</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="funcShow">
-          <property name="minimumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QListWidget" name="listDetailFunc">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>200</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>200</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="lineWidth">
          <number>0</number>
         </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOff</enum>
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <property name="isWrapping" stdset="0">
-         <bool>false</bool>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>录入</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
         </property>
         <property name="spacing">
-         <number>1</number>
+         <number>0</number>
         </property>
-        <property name="viewMode">
-         <enum>QListView::ListMode</enum>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-        <property name="selectionRectVisible">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>用户管理</string>
-         </property>
-         <property name="toolTip">
-          <string>用户管理</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>工作日切换</string>
-         </property>
-         <property name="toolTip">
-          <string>工作日切换</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
-     <widget class="QWidget" name="showwidget" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>2</number>
-       </property>
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item row="0" column="0">
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="currentIndex">
-          <number>1</number>
-         </property>
-         <widget class="QWidget" name="tab">
-          <attribute name="title">
-           <string>监控</string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>0</number>
-           </property>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_2">
-          <attribute name="title">
-           <string>录入</string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_4">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>0</number>
-           </property>
-          </layout>
-         </widget>
-        </widget>
-       </item>
-      </layout>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
