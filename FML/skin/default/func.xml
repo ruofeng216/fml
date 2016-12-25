@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<AllFunctions funcid="root">
+		<function funcid="SysMgr" funcname="系统管理" funcdesc="" order="100001">
+			<function funcid="SysMgr_User" funcname="用户管理" funcdesc="" order="200001"/>
+			<function funcid="SysMgr_WorkDay" funcname="工作日切换" funcdesc="" order="200002"/>
+		</function>
+		<function funcid="ParaMgr" funcname="参数管理" funcdesc="" order="100002">
+
+		</function>
+		<function funcid="YieldCurveSet" funcname="收益率曲线定义" funcdesc="" order="100003">
+
+		</function>
+		<function funcid="YieldCurveMgr" funcname="收益率曲线管理" funcdesc="" order="100004">
+
+		</function>
+		<function funcid="DataImport" funcname="数据批量导入" funcdesc="" order="100005">
+
+		</function>
+		<function funcid="TradingParameter" funcname="交易台账" funcdesc="" order="100006">
+
+		</function>
+		<function funcid="PortfolioMgr" funcname="组合管理" funcdesc="" order="100007">
+
+		</function>
+		<function funcid="Monitor" funcname="行情和敞口综合监控" funcdesc="" order="100008">
+
+		</function>
+	</AllFunctions>
+</configuration>
